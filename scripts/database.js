@@ -28,7 +28,13 @@ const database = {
             id: 4,
             name: 'Patricia Purdy',
             isActive: false,
-            colonyId: 0
+            colonyId: 4
+        },
+        {
+            id: 5,
+            name: 'John Doe',
+            isActive: false,
+            colonyId: 5
         }
     ],
     facilities: [
@@ -46,6 +52,16 @@ const database = {
             id: 3,
             name: 'Titan',
             isActive: true
+        },
+        {
+            id: 4,
+            name: 'Liminality',
+            isActive: false
+        },
+        {
+            id: 5,
+            name: 'The Backrooms',
+            isActive: false
         }
     ],
     colonies: [
