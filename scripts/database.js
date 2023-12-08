@@ -81,35 +81,83 @@ const database = {
     minerals: [
         {
             id: 1,
-            mineral: 'Iron',
-            amount: 25
+            mineral: 'Iron'
         },
         {
             id: 2,
-            mineral: 'Chromium',
-            amount: 10
+            mineral: 'Chromium'
         },
         {
             id: 3,
-            mineral: 'Molybdenum',
-            amount: 100
-        }
+            mineral: 'Molybdenum'
+        },
+        {
+            id: 4,
+            mineral: 'Copper'
+        },
+        {
+            id: 5,
+            mineral: 'Diamond'
+        },
+        {
+            id: 6,
+            mineral: 'Platinum'
+        },
     ],
     productions: [
         {
             id: 1,
             facilityId: 1,
-            mineralId: 1
+            mineralId: 1,
+            mineralAmount: 25,
         },
         {
             id: 2,
-            facilityId: 1,
-            mineralId: 2
+            facilityId: 2,
+            mineralId: 2,
+            mineralAmount: 10
         },
         {
             id: 3,
             facilityId: 2,
-            mineralId: 3
+            mineralId: 3,
+            mineralAmount: 100,
+        },
+        {
+            id: 4,
+            facilityId: 3,
+            mineralId: 4,
+            mineralAmount: 71,
+        },
+        {
+            id: 5,
+            facilityId: 3,
+            mineralId: 3,
+            mineralAmount: 17,
+        },
+        {
+            id: 6,
+            facilityId: 2,
+            mineralId: 6,
+            mineralAmount: 88,
+        },
+        {
+            id: 7,
+            facilityId: 1,
+            mineralId: 4,
+            mineralAmount: 55,
+        },
+        {
+            id: 8,
+            facilityId: 1,
+            mineralId: 6,
+            mineralAmount: 101,
+        },
+        {
+            id: 9,
+            facilityId: 3,
+            mineralId: 5,
+            mineralAmount: 311,
         }
     ],
     // order structure: { id: 0, governorId: 0, productionId: 0}
