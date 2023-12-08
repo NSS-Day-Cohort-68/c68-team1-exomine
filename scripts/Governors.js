@@ -1,44 +1,43 @@
-// get use selected governor and return html for the colony name 
-const colonyChangeHandler = async (changeEvent) => {
-    const response = await fetch("http://localhost:8088/colonies")
-    const governors = await response.json()
-    let colonyNameHTML = ''
+import { getColonies, getGovernors, setGovernor } from "./database.js"
+const colonies = getColonies()
+const governors = getGovernors()
 
-    if (changeEvent.target.id === "governor") {
-        const colonyFK = changeEvent.target.colonyfk
+// get use selected governor and return html for the colony name
+const handleGovernorChange = (changeEvent) => {
+  if (changeEvent.target.id === "governorDropdown") {
+    const colonyNameContainer = document.querySelector(".colonyName")
+    const chosenGov = changeEvent.target.value
+    for (const governor of governors) {
+      if (parseInt(chosenGov) === governor.id) {
         for (const colony of colonies) {
-            if (colony.id === colonyFK) {
-                colonyNameHTML += `${colony.name}`
-           }
-        
-       }
+          if (colony.id === governor.colonyId) {
+            colonyNameContainer.innerHTML = `${colony.name} Minerals`
+          }
+        }
+      }
     }
-    return colonyNameHTML
- }
+  }
+}
 
-export const GovernorChoices = async () => {
-    const response = await fetch("http://localhost:8088/governors")
-    const governors = await response.json()
+document.addEventListener("change", handleGovernorChange)
 
-    let governorChoicesHTML = `
+export const GovernorChoices = () => {
+  let governorChoicesHTML = `
                     <select id='governorDropdown'>
                         <option value='0'>
                             Choose a governor...
-                        </option>
+                        </option> 
                         `
-  
-    for (const governor of governors) {
-        if (governor.isActive) {
-            governorChoicesHTML += `
-                <option id="governor" value='${governor.id} colonyfk=${governor.colonyId}'>
+
+  for (const governor of governors) {
+    if (governor.isActive) {
+      governorChoicesHTML += `
+                <option id="governor" value='${governor.id}' colonyfk='${governor.colonyId}'>
                     ${governor.name}            
                 </option>
                 `
-        }
     }
-    governorChoicesHTML += `</select>`
-    return governorChoicesHTML
+  }
+  governorChoicesHTML += `</select>`
+  return governorChoicesHTML
 }
-
-
-

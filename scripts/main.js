@@ -1,4 +1,4 @@
-import { GovernorChoices } from "./Governors"
+import { GovernorChoices } from "./Governors.js"
 
 const render = () => {
   const container = document.getElementById("container")
@@ -6,7 +6,7 @@ const render = () => {
         <h1>Solar System Mining Market</h1>
             <section id="userSelections">
                 <div id="selections">${GovernorChoices()}</div> <!--choose governor & choose facility dropdowns-->
-                <div id="resources"><h2>${colonyChangeHandler()}</h2<>\${}</div> <!--display available resources-->
+                <div id="resources"><h2 class="colonyName">Colony Minerals</h2>\${}</div> <!--display available resources-->
             </section>
             <section id="shop">
                 <div id="minerals">\${}</div> <!--show facility minerals with radio buttons-->
