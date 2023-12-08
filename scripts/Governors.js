@@ -32,7 +32,7 @@ export const GovernorChoices = () => {
   for (const governor of governors) {
     if (governor.isActive) {
       governorChoicesHTML += `
-                <option id="governor" value='${governor.id}' colonyfk='${governor.colonyId}'>
+                <option class="governor" value='${governor.id}' colonyfk='${governor.colonyId}'>
                     ${governor.name}            
                 </option>
                 `
