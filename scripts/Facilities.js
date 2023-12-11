@@ -1,7 +1,8 @@
 import {
     getFacilities,
     getMinerals, 
-    getProductions } from "./database.js"
+    getProductions, 
+    setFacility} from "./database.js"
 
 const facilities = getFacilities()
 const minerals = getMinerals()
@@ -9,20 +10,24 @@ const productions = getProductions()
 
 // Create HTML for FACILITIES MENU
 export const FacilitiesChoices = () => {
+    // initial HTML
     let facilitiesHTML = `
                 <select id="facilitiesDropdown">
                     <option value="0">Choose a facility
                 </option>
                 `
 
+    // populate the dropdown with active facilities
     for (const facility of facilities) {
         if (facility.isActive) {
             facilitiesHTML += `
                     <option class="facility" value="${facility.id}">${facility.name}</option>`
         }
     }
+    // close the dropdown HTML element tag
     facilitiesHTML += `</select>`
 
+    // hold onto the final infor for the dropdown
     return facilitiesHTML
 }
 
@@ -55,8 +60,8 @@ const handleFacilityChange = (changeEvent) => {
     if (changeEvent.target.id === "facilitiesDropdown") {
 
         const facilityNameContainer = document.querySelector(".facilityName")
-
         const chosenFacility = parseInt(changeEvent.target.value)
+        setFacility(chosenFacility)
 
         for (const facility of facilities) {
             if (chosenFacility === facility.id) {
@@ -86,27 +91,27 @@ document.addEventListener("change", handleFacilityChange)
 
 
 // Facilities HTML injection
-export const FacilitiesOptions = () => {
+// export const FacilitiesOptions = () => {
     
-    let FacilitiesHTML = `<h2>Facilities Minerals</h2>`
+//     let FacilitiesHTML = `<h2>Facilities Minerals</h2>`
 
     
 
-    const productionMatches = productions.filter(
-        (production) => {parseInt(production.facilityId) = parseInt(/*facilities.Id*/ 1)
-            return `
-                    <div class="minerals">
-                        <input
-                            type="radio"
-                            name="mineral"
-                            value="${minerals.id}"
-                            />${minerals.amount} tons of ${minerals.name}
-                    </div>`
-        }
-    )
+//     const productionMatches = productions.filter(
+//         (production) => {parseInt(production.facilityId) = parseInt(/*facilities.Id*/ 1)
+//             return `
+//                     <div class="minerals">
+//                         <input
+//                             type="radio"
+//                             name="mineral"
+//                             value="${minerals.id}"
+//                             />${minerals.amount} tons of ${minerals.name}
+//                     </div>`
+//         }
+//     )
 
-    FacilitiesHTML += productionMatches.join("")
-}
+//     FacilitiesHTML += productionMatches.join("")
+// }
 
 // Function to iterate through all PRODUCTIONS to find matches against MINERALS
 
