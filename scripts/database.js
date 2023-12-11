@@ -4,6 +4,7 @@ const database = {
         governorId: 0,
         facilityId: 0,
         mineralId: 0
+      
     },
     governors: [
         {
@@ -153,6 +154,11 @@ export const getOrders = () => {
     return database.orders.map(order => ({ ...order }))
 }
 
+export const makePurchase = () => {
+    //push transient state to database.orders ad property "id", assign "id" value of orders.length + 1
+    //subtract one from total of selected mineral in selected facility 
+    
+}
 
 // export const purchaseMineral = () => {
 //     // [ insert code for saving purchase? ]
