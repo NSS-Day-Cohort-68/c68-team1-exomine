@@ -13,7 +13,7 @@
 
 // cart.js 
 // display purchase button, purchase event,
-//change event listener mineral selection
+//change-event listener mineral selection
 
 //orders.js 
 //event listener for purchase button

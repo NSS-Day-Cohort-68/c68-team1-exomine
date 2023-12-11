@@ -43,7 +43,7 @@ const FacilitiesRadios = (facilityValue) => {
                 if (mineral.id === production.mineralId) {
                     facilityRadiosHTML += `
                     <div class="minerals">
-                        <input type="radio" name="minerals" value="${mineral.id}" />${mineralAmount} tons of ${mineral.mineral}
+                        <input type="radio" name="minerals" value="${mineral.id}" data-type="${mineral.mineral}" />${mineralAmount} tons of ${mineral.mineral}
                     </div>`
                 }
             }

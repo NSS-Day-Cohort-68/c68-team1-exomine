@@ -4,6 +4,7 @@ const database = {
         governorId: 0,
         facilityId: 0,
         mineralId: 0
+      
     },
     governors: [
         {
@@ -180,6 +181,7 @@ export const setFacility = (inputId) => {
 export const setMineral = (inputId) => {
     database.transientState.mineralId = inputId
     document.dispatchEvent(stateChangeEvent)
+    console.log(database.transientState)
 }
 
 export const getGovernors = () => {
@@ -200,6 +202,9 @@ export const getProductions = () => {
 export const getOrders = () => {
     return database.orders.map(order => ({ ...order }))
 }
+
+
+  
 
 
 // export const purchaseMineral = () => {
