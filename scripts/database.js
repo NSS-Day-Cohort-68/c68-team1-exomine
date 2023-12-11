@@ -181,6 +181,7 @@ export const setFacility = (inputId) => {
 export const setMineral = (inputId) => {
     database.transientState.mineralId = inputId
     document.dispatchEvent(stateChangeEvent)
+    console.log(database.transientState)
 }
 
 export const getGovernors = () => {
@@ -202,11 +203,9 @@ export const getOrders = () => {
     return database.orders.map(order => ({ ...order }))
 }
 
-export const makePurchase = () => {
-    //push transient state to database.orders ad property "id", assign "id" value of orders.length + 1
-    //subtract one from total of selected mineral in selected facility 
-    
-}
+
+  
+
 
 // export const purchaseMineral = () => {
 //     // [ insert code for saving purchase? ]

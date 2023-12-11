@@ -19,11 +19,13 @@ const handlePurchaseSubmisssionClick = (clickEvent) => {
 }
 
 const handleMineralChoice = (changeEvent) => {
-    if (changeEvent.target.name === "mineral") {
+    if (changeEvent.target.name === "minerals") {
         const convertedtoInteger = parseInt(changeEvent.target.value)
         setMineral(convertedtoInteger)
-        document.getElementById("currentmineral").innerHTML = `1 ton of ${mineral.mineral} `
+        document.getElementById("currentmineral").innerHTML = `1 ton of ${changeEvent.target.dataset.type} `
+        
     }
+
     //update inner HTML of cart to display selected mineral 
 }
 

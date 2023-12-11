@@ -1,5 +1,6 @@
 import { FacilitiesChoices } from "./Facilities.js"
 import { GovernorChoices, } from "./Governors.js"
+import { makePurchase } from "./cart.js"
 
 const render = () => {
   const container = document.getElementById("container")
@@ -17,7 +18,7 @@ const render = () => {
                         <h3>Please Select a Governor and a Facility...</h3>
                     </div>
                 </div> <!--show facility minerals with radio buttons-->
-                <div id="cart">\${}</div> <!--display cart and purchase button-->
+                <div id="cart">${makePurchase()}</div> <!--display cart and purchase button-->
             </section>
     `
 }
