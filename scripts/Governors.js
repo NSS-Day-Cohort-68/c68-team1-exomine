@@ -6,7 +6,8 @@ const governors = getGovernors()
 const handleGovernorChange = (changeEvent) => {
   if (changeEvent.target.id === "governorDropdown") {
     const colonyNameContainer = document.querySelector(".colonyName")
-    const chosenGov = changeEvent.target.value
+      const chosenGov = changeEvent.target.value
+      const setGovernerState = setGovernor(chosenGov)
     for (const governor of governors) {
       if (parseInt(chosenGov) === governor.id) {
         for (const colony of colonies) {
