@@ -4,6 +4,7 @@ import { makePurchase } from "./cart.js"
 import { ResourcesList } from "./Resources.js"
 
 const render = () => {
+    console.log("rendered")
     const container = document.getElementById("container")
     container.innerHTML = `
         <h1>Solar System Mining Market</h1>
@@ -25,3 +26,5 @@ const render = () => {
 }
 
 render()
+
+// document.addEventListener("stateChanged", render)

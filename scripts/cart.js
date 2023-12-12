@@ -17,6 +17,7 @@ export const makePurchase = () => {
 const handlePurchaseSubmisssionClick = (clickEvent) => {
     if (clickEvent.target.id === "makepurchase") {
         purchaseMineral()
+        
     }
 }
 

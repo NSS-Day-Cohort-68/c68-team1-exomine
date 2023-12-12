@@ -172,15 +172,15 @@ const stateChangeEvent = new CustomEvent('stateChanged')
 
 export const setGovernor = (inputId) => {
     database.transientState.governorId = inputId
-    document.dispatchEvent(stateChangeEvent)
+    // document.dispatchEvent(stateChangeEvent)
 }
 export const setFacility = (inputId) => {
     database.transientState.facilityId = inputId
-    document.dispatchEvent(stateChangeEvent)
+    // document.dispatchEvent(stateChangeEvent)
 }
 export const setMineral = (inputId) => {
     database.transientState.mineralId = inputId
-    document.dispatchEvent(stateChangeEvent)
+    // document.dispatchEvent(stateChangeEvent)
     // console.log(database.transientState)
 }
 
@@ -210,6 +210,7 @@ export const purchaseMineral = () => {
         facilityId: database.transientState.facilityId,
         mineralId: database.transientState.mineralId
     })
+    document.dispatchEvent(stateChangeEvent)
     console.log(database.orders)
 }
 

@@ -68,7 +68,7 @@ const handleGovernorSelection = (changeEvent) => {
         // console.log("orderMatches array: ", orderMatches)
 
         const currentColonyResources = tallyMineralCounts(orderMatches)
-
+        
         const resourcesEl = document.querySelector("#resources-log")
         const resourcesHtml = UpdateResourceList(currentColonyResources)
         resourcesEl.innerHTML = resourcesHtml
@@ -76,6 +76,7 @@ const handleGovernorSelection = (changeEvent) => {
 }
 
 document.addEventListener("change", handleGovernorSelection)
+document.addEventListener("stateChanged", handleGovernorSelection)
 
 export const ResourcesList = () => {
     return `<section id="resources-log"></section>`
