@@ -78,5 +78,5 @@ const handleGovernorSelection = (changeEvent) => {
 document.addEventListener("change", handleGovernorSelection)
 
 export const ResourcesList = () => {
-    return `<section id="resources-log">`
+    return `<section id="resources-log"></section>`
 }
