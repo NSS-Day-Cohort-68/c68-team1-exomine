@@ -1,15 +1,16 @@
 import { FacilitiesChoices } from "./Facilities.js"
-import { GovernorChoices, } from "./Governors.js"
+import { GovernorChoices } from "./Governors.js"
 import { makePurchase } from "./cart.js"
+import { ResourcesList } from "./Resources.js"
 
 const render = () => {
-  const container = document.getElementById("container")
-  container.innerHTML = `
+    const container = document.getElementById("container")
+    container.innerHTML = `
         <h1>Solar System Mining Market</h1>
             <section id="userSelections">
                 <div id="selections">${GovernorChoices()} ${FacilitiesChoices()}
                 </div>
-                <div id="resources"><h2 class="colonyName">Colony Minerals</h2>\${}</div> <!--display available resources-->
+                <div id="resources"><h2 class="colonyName">Colony Minerals</h2>${ResourcesList()}</div> <!--display available resources-->
             </section>
             <section id="shop">
                 <div id="minerals">
