@@ -11,7 +11,7 @@ const tallyMineralCounts = (orderMatchesArray) => {
     for (const mineral of minerals) {
         purchasedMineralsCounter[`${mineral.mineral}`] = 0
     }
-    console.log("purchasedMineralsCounter: ", purchasedMineralsCounter)
+    // console.log("purchasedMineralsCounter: ", purchasedMineralsCounter)
 
     for (const orderMatch of orderMatchesArray) {
         const productionMatch = productions.find(
@@ -20,7 +20,7 @@ const tallyMineralCounts = (orderMatchesArray) => {
                 orderMatch.mineralId === production.mineralId
         )
 
-        console.log("productionMatch is: ", productionMatch)
+        // console.log("productionMatch is: ", productionMatch)
 
         const mineralMatch = minerals.find(
             (mineral) => productionMatch.mineralId === mineral.id
@@ -29,7 +29,7 @@ const tallyMineralCounts = (orderMatchesArray) => {
         purchasedMineralsCounter[`${mineralMatch.mineral}`]++
     }
 
-    console.log("updated purchasedMineralsCounter: ", purchasedMineralsCounter)
+    // console.log("updated purchasedMineralsCounter: ", purchasedMineralsCounter)
 
     return purchasedMineralsCounter
 }
@@ -60,15 +60,15 @@ const UpdateResourceList = (talliedMineralsObject) => {
 const handleGovernorSelection = (changeEvent) => {
     if (changeEvent.target.id === "governorDropdown") {
         const selectedGovernorId = parseInt(changeEvent.target.value)
-        console.log("selectedGovernorId", selectedGovernorId)
+        // console.log("selectedGovernorId", selectedGovernorId)
 
         const orderMatches = orders.filter(
             (order) => order.governorId === selectedGovernorId
         )
-        console.log("orderMatches array: ", orderMatches)
+        // console.log("orderMatches array: ", orderMatches)
 
         const currentColonyResources = tallyMineralCounts(orderMatches)
-
+        
         const resourcesEl = document.querySelector("#resources-log")
         const resourcesHtml = UpdateResourceList(currentColonyResources)
         resourcesEl.innerHTML = resourcesHtml
@@ -76,6 +76,7 @@ const handleGovernorSelection = (changeEvent) => {
 }
 
 document.addEventListener("change", handleGovernorSelection)
+document.addEventListener("stateChanged", handleGovernorSelection)
 
 export const ResourcesList = () => {
     return `<section id="resources-log"></section>`

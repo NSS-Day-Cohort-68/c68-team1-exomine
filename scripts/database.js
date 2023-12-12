@@ -4,7 +4,7 @@ const database = {
         governorId: 0,
         facilityId: 0,
         mineralId: 0
-      
+
     },
     governors: [
         {
@@ -172,16 +172,16 @@ const stateChangeEvent = new CustomEvent('stateChanged')
 
 export const setGovernor = (inputId) => {
     database.transientState.governorId = inputId
-    document.dispatchEvent(stateChangeEvent)
+    // document.dispatchEvent(stateChangeEvent)
 }
 export const setFacility = (inputId) => {
     database.transientState.facilityId = inputId
-    document.dispatchEvent(stateChangeEvent)
+    // document.dispatchEvent(stateChangeEvent)
 }
 export const setMineral = (inputId) => {
     database.transientState.mineralId = inputId
-    document.dispatchEvent(stateChangeEvent)
-    console.log(database.transientState)
+    // document.dispatchEvent(stateChangeEvent)
+    // console.log(database.transientState)
 }
 
 export const getGovernors = () => {
@@ -203,8 +203,16 @@ export const getOrders = () => {
     return database.orders.map(order => ({ ...order }))
 }
 
-
-  
+export const purchaseMineral = () => {
+    database.orders.push({
+        id: database.orders.length + 1,
+        governorId: database.transientState.governorId,
+        facilityId: database.transientState.facilityId,
+        mineralId: database.transientState.mineralId
+    })
+    document.dispatchEvent(stateChangeEvent)
+    console.log(database.orders)
+}
 
 
 // export const purchaseMineral = () => {
