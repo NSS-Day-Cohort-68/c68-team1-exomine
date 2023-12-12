@@ -7,17 +7,16 @@ import { purchaseMineral } from "./database.js"
 
 export const makePurchase = () => {
     document.addEventListener("click", handlePurchaseSubmisssionClick)
-    purchaseMineral()
     return `
-<button id='makepurchase'>Make Purchase</button>
-<div id="currentmineral"></div>`
+    <button id='makepurchase'>Make Purchase</button>
+    <div id="currentmineral"></div>`
 
 
 }
 
 const handlePurchaseSubmisssionClick = (clickEvent) => {
     if (clickEvent.target.id === "makepurchase") {
-        makePurchase()
+        purchaseMineral()
     }
 }
 
@@ -26,7 +25,7 @@ const handleMineralChoice = (changeEvent) => {
         const convertedtoInteger = parseInt(changeEvent.target.value)
         setMineral(convertedtoInteger)
         document.getElementById("currentmineral").innerHTML = `1 ton of ${changeEvent.target.dataset.type} `
-        
+
     }
 
     //update inner HTML of cart to display selected mineral 
