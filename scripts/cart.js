@@ -2,13 +2,16 @@
 //change event
 //make selected mineral appear in the cart
 import { setMineral } from "./database.js"
+import { purchaseMineral } from "./database.js"
 
 
 export const makePurchase = () => {
     document.addEventListener("click", handlePurchaseSubmisssionClick)
+    purchaseMineral()
     return `
 <button id='makepurchase'>Make Purchase</button>
 <div id="currentmineral"></div>`
+
 
 }
 

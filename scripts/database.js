@@ -203,8 +203,15 @@ export const getOrders = () => {
     return database.orders.map(order => ({ ...order }))
 }
 
-
-  
+export const purchaseMineral = () => {
+    database.orders.push({
+        id: database.orders.length +1,
+        governorId: database.transientState.governorId,
+        facilityId: database.transientState.facilityId,
+        mineralId: database.transientState.mineralId
+    })
+    console.log(database.orders)
+}  
 
 
 // export const purchaseMineral = () => {
