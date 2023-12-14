@@ -2,11 +2,17 @@ import {
     getFacilities,
     getMinerals, 
     getProductions, 
+    getTransientState, 
     setFacility} from "./database.js"
 
 const facilities = getFacilities()
 const minerals = getMinerals()
 const productions = getProductions()
+
+const localMineralAmounts = {}
+for(const mineral of minerals) {
+    localMineralAmounts[`${mineral.mineral}`] = 0
+}
 
 // Create HTML for FACILITIES MENU
 export const FacilitiesChoices = () => {
@@ -43,7 +49,7 @@ const FacilitiesRadios = (facilityValue) => {
                 if (mineral.id === production.mineralId) {
                     facilityRadiosHTML += `
                     <div class="minerals">
-                        <input type="radio" name="minerals" value="${mineral.id}" data-type="${mineral.mineral}" />${mineralAmount} tons of ${mineral.mineral}
+                        <input type="radio" name="minerals" value="${mineral.id}" data-type="${mineral.mineral}" />${mineralAmount + localMineralAmounts.mineral.mineral} tons of ${mineral.mineral}
                     </div>`
                 }
             }
@@ -53,27 +59,38 @@ const FacilitiesRadios = (facilityValue) => {
     return facilityRadiosHTML
 }
 
-const handleFacilityChange = (changeEvent) => {
 
+const renderRadioButtons = (chosenFacility) => {
     const facilitiesRadiosContainer = document.querySelector(".facilityRadios")
-    
-    if (changeEvent.target.id === "facilitiesDropdown") {
+    const facilityNameContainer = document.querySelector(".facilityName")
 
-        const facilityNameContainer = document.querySelector(".facilityName")
+    
+    for (const facility of facilities) {
+        if (chosenFacility === facility.id) {
+            facilityNameContainer.innerHTML = `Facility Minerals for ${facility.name}`
+        }
+    }
+    
+    facilitiesRadiosContainer.innerHTML = FacilitiesRadios(chosenFacility)
+}
+
+const handleFacilityChange = (changeEvent) => {
+    if (changeEvent.target.id === "facilitiesDropdown") {
         const chosenFacility = parseInt(changeEvent.target.value)
         setFacility(chosenFacility)
-
-        for (const facility of facilities) {
-            if (chosenFacility === facility.id) {
-                facilityNameContainer.innerHTML = `Facility Minerals for ${facility.name}`
-            }
-        }
-
-        facilitiesRadiosContainer.innerHTML = FacilitiesRadios(chosenFacility)
+        renderRadioButtons(chosenFacility)
+    
     }
 } 
 
+// const handleStateChange = () => {
+//     localMineralAmount-=1
+//     renderRadioButtons(getTransientState().facilityId)
+// }
+
 document.addEventListener("change", handleFacilityChange)
+
+// document.addEventListener("stateChanged", handleStateChange)
 
 
 
