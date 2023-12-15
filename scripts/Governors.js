@@ -24,7 +24,7 @@ document.addEventListener("change", handleGovernorChange)
 
 export const GovernorChoices = () => {
   let governorChoicesHTML = `
-                    <select id='governorDropdown'>
+                    <select id='governorDropdown' class='dropdown'>
                         <option value='0'>
                             Choose a governor...
                         </option> 
