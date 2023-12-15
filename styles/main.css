@@ -2,15 +2,16 @@
 
 /*Typography
 --------------------------------------------------------------*/
-/* body,
+body,
 button,
 input,
 select,
 textarea {
-    color: #404040;
+    color: white;
     font-family: 'Comfortaa', Arial, sans-serif;
     font-size: 14px;
     line-height: 1.5;
+    margin: 0;
 }
 
 h1,
@@ -22,16 +23,91 @@ h6 {
     font-family: 'Patua One', serif;
     letter-spacing: 2px;
 }
-
-.details {
+#container{
+    padding: 20px;
+    background-color: #062c43;
+}
+#userSelections{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between; 
+    padding: 40px;
+    height: 40vh;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#selections{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
 }
 
-.detail--column {
-    flex-basis: 24%;
-    margin: 0 2rem;
-    padding: 1rem;
-    border: 1px dotted goldenrod;
+.dropdown{
+    margin: 10px ;
+}
+select{
+    background-color: black;
+    padding: 10px;
+    border-radius: 20px;
+    width: 40%;
+}
+
+select:hover{
+    background-color: white;
+    color: #062c43;
+}
+#resources{
+    background-color: #ced7e0; 
+    color: black;
+    border-radius: 20px;
+    padding: 30px;
+    width: 50%;
+    height: 80%;
+    text-align: center;
+}
+
+#shop{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items:start;
+    height: 40vh;
+}
+
+#minerals{
+    background-color: white;
+    color: #062c43;
+    border-radius: 20px;
+    padding: 20px 30px 30px 30px;
+    width: 50%;
+    height: 80%;
+    text-align: center;
+}
+
+#cart{
+    background-color:#e9e8ee ;
+    color: #062c43;
+    width: 30%;
+    height:80%;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+button{
+    background-color: #062c43;
+    color: white;
+    border-radius: 20px;
+    width: 60%;
+    height: 40px;
+}
+
+button:hover{
+    background-color:#ced7e0;
+    color: black;
 }

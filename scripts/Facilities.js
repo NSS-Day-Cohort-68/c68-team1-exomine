@@ -19,7 +19,7 @@ for (const mineral of minerals) {
 export const FacilitiesChoices = () => {
     // initial HTML
     let facilitiesHTML = `
-                <select id="facilitiesDropdown">
+                <select id="facilitiesDropdown" class='dropdown'>
                     <option value="0">Choose a facility
                 </option>
                 `
